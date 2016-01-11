@@ -1,0 +1,10 @@
+<div class="d3 graph ui segment loading" style="min-height: 50vh;"></div>
+<div class="ui selection dropdown loading">
+  <input type="hidden" name="gender" ng-model="chosenSuffix">
+  <i class="dropdown icon"></i>
+  <div class="default text">Suffix auswählen</div>
+  <div class="menu">
+    <div class="item" ng-repeat="sx in suffixList track by sx.regex"
+         data-value="{{sx.regex}}">{{sx.niceName}}</div>
+  </div>
+</div>

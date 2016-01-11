@@ -1,0 +1,94 @@
+[
+  {
+    "niceName": "–berg, -bärg",
+    "regex": "b[eä]rg(li|en)?$"
+  },
+  {
+    "niceName": "-hof, -hofen, -höfli",
+    "regex": "h[oö]f(li|en)?$"
+  },
+  {
+    "niceName": "-matt, -matten, -mätteli",
+    "regex": "m[aä]tt(e|li)?(n)?$"
+  },
+  {
+    "niceName": "-egg, -eggen, -eggli",
+    "regex": "egg(en|li)?$"
+  },
+  {
+    "niceName": "-haus, -hus, -husen, -hüsli",
+    "regex": "h(au|u|ü)s(li|en)?$"
+  },
+  {
+    "niceName": "-weid, -weide, -waid, -weidli",
+    "regex": "w[ae]id(e|en|li)?$"
+  },
+  {
+    "niceName": "-boden, -bode, -bödeli",
+    "regex": "b[oö]de(n|li)?$"
+  },
+  {
+    "niceName": "-büel, -bühl",
+  "regex": "bü(h|e|eh)?l(i|en)?$"
+  },
+  {
+    "niceName": "-schwand, -schwendi, -schwändi",
+    "regex": "schw[aeä]nd(i|li|en)?$"
+  },
+  {
+    "niceName": "-acher, -acker, -agger",
+    "regex": "a(gg|c(h|k))er(n|li)?$"
+  },
+  {
+    "niceName": "-moos, -mos, -möösli",
+    "regex": "m[oö]{1,2}s(li)?$"
+  },
+  {
+    "niceName": "-au, -auen",
+    "regex": "aue?n?$"
+  },
+  {
+    "niceName": "-rüti, -rüeti, -rütenen",
+    "regex": "rüe?t(i|enen)$"
+  },
+  {
+    "niceName": "-holz, -hölzli",
+    "regex": "h[oö]lz(li|en)?$"
+  },
+  {
+    "niceName": "-tal, -täli",
+    "regex": "t[aä]li?$"
+  },
+  {
+    "niceName": "-ried, -riet",
+    "regex": "rie[td](en|li)?$"
+  },
+  {
+    "niceName": "-alp, -älpli",
+    "regex": "[aä]lp(li)?$"
+  },
+  {
+    "niceName": "-ing, -ung, -ingen, -ungen",
+    "regex": "[ui]ng(en)?$"
+  },
+  {
+    "niceName": "dessous, dessus",
+    "regex": "desso?us$"
+  },
+  {
+    "niceName": "-loch, -löchli",
+    "regex": "l[öo]ch(li)?$"
+  },
+  {
+    "niceName": "-ikon, -ikofen, -ingheim, -kausen",
+    "regex": "(in?ghei?m|kaus(en)?|i(ng|e)hausen|ik[eo](n|fen))$"
+  },
+  {
+    "niceName": "-stein",
+    "regex": "stein$"
+  },
+  {
+    "niceName": "-stadt, -statt, -stetten",
+    "regex": "st[aeä][dt]{1,2}(en|li)?$"
+  }
+]
