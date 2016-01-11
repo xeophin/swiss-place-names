@@ -11,7 +11,7 @@ angular.module('swissnamesApp')
 
 function visual(suffixes, placeNames) {
   return {
-    templateUrl: 'scripts/directives/visual.template.html',
+    templateUrl: 'views/visual.template.html',
     restrict: 'E',
     scope: {
       suffix: '=',
@@ -33,7 +33,7 @@ function visual(suffixes, placeNames) {
     var nMin = 1070625;
     var nMax = 1297374;
 
-    // Define height and width //TODO
+    // Define height and width
     var width = 1100,
       height = width / (eMax - eMin) * (nMax - nMin);
 
@@ -47,10 +47,14 @@ function visual(suffixes, placeNames) {
       .range([height, 0]);
 
 
-    // Define color
+    // Define colors
+    var backgroundColor = "#cce4ed",
+      foregroundColor = "#9b2979"
+
+
     var color = d3.scale.linear()
-      .domain([0, 5])
-      .range(["lightyellow", "green"])
+      .domain([0, 10])
+      .range([backgroundColor, foregroundColor])
       .interpolate(d3.interpolateLab);
 
     var hexbin = d3.hexbin()
@@ -105,7 +109,7 @@ function visual(suffixes, placeNames) {
         .attr("transform", function (d) {
           return "translate(" + d.x + "," + d.y + ")";
         })
-        .style("fill", "lightyellow");
+        .style("fill", backgroundColor);
 
       return svg;
     }

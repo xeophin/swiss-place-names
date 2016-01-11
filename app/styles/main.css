@@ -13,3 +13,8 @@ body {
 .placeholder {
   min-height: 75vh;
 }
+
+p.imprint {
+  font-size: 0.8em;
+  color: lightgray;
+}

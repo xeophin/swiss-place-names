@@ -1,0 +1,28 @@
+<div class="ui three column stackable grid">
+  <div class="column">
+    <p>Die Visualisierung zeigt die Verteilung von bestimmten
+      Ortsnamensendungen in der Schweiz.
+    </p>
+
+  </div>
+  <div class="column">
+    <p>Je mehr Ortschaften mit der selben Endung sich in einem Hexagon
+      befinden, desto dunkler ist dessen Farbe.</p>
+  </div>
+  <div class="column">
+    <p>Wählen Sie ein Suffix aus dem Menü aus, um die Verteilung anzuzeigen:
+    </p>
+    <div class="ui selection fluid dropdown loading">
+      <input type="hidden" name="gender" ng-model="chosenSuffix">
+      <i class="dropdown icon"></i>
+      <div class="default text">Suffix auswählen</div>
+      <div class="menu">
+        <div class="item" ng-repeat="sx in suffixList track by sx.regex"
+             data-value="{{sx.regex}}">{{sx.niceName}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d3 graph ui segment loading" style="min-height: 33vh;"></div>
+
