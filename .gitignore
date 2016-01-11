@@ -3,3 +3,4 @@
 .RData
 .idea
 node_modules
+.tmp
