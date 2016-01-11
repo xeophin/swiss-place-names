@@ -24,6 +24,14 @@
     "regex": "w[ae]id(e|en|li)?$"
   },
   {
+    "niceName": "-bach, -bächli",
+    "regex": "b[aä]ch(li|en)?$"
+  },
+  {
+"niceName": "-wil, -weiler, -wyler",
+    "regex": "w(ei|ie|i|y)l(er|en)?$"
+  },
+  {
     "niceName": "-boden, -bode, -bödeli",
     "regex": "b[oö]de(n|li)?$"
   },
@@ -72,10 +80,6 @@
     "regex": "[ui]ng(en)?$"
   },
   {
-    "niceName": "dessous, dessus",
-    "regex": "desso?us$"
-  },
-  {
     "niceName": "-loch, -löchli",
     "regex": "l[öo]ch(li)?$"
   },
@@ -90,5 +94,9 @@
   {
     "niceName": "-stadt, -statt, -stetten",
     "regex": "st[aeä][dt]{1,2}(en|li)?$"
+  },
+  {
+    "niceName": "-burg",
+    "regex": "burg$"
   }
 ]

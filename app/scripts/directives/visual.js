@@ -48,8 +48,8 @@ function visual(suffixes, placeNames) {
 
 
     // Define colors
-    var backgroundColor = "#cce4ed",
-      foregroundColor = "#9b2979"
+    var backgroundColor = '#cce4ed',
+      foregroundColor = '#9b2979';
 
 
     var color = d3.scale.linear()
@@ -97,17 +97,17 @@ function visual(suffixes, placeNames) {
      */
     function createBackgroundGrid(svg) {
       // Create background shape of switzerland with all data points
-      svg.append("g")
-        .attr("clip-path", "url(#clip)")
-        .selectAll(".backgroundhex")
+      svg.append('g')
+        .attr('clip-path', 'url(#clip)')
+        .selectAll('.backgroundhex')
         .data(hexbin(scope.allPlacenames))
-        .enter().append("path")
-        .attr("class", "backgroundhex")
-        .attr("d", hexbin.hexagon())
-        .attr("transform", function (d) {
-          return "translate(" + d.x + "," + d.y + ")";
+        .enter().append('path')
+        .attr('class', 'backgroundhex')
+        .attr('d', hexbin.hexagon())
+        .attr('transform', function (d) {
+          return 'translate(' + d.x + ',' + d.y + ')';
         })
-        .style("fill", backgroundColor);
+        .style('fill', backgroundColor);
 
       return svg;
     }
@@ -131,16 +131,16 @@ function visual(suffixes, placeNames) {
       d3.selectAll('.hexagon').remove();
 
       // Show selected
-      svg.selectAll(".hexagon")
+      svg.selectAll('.hexagon')
         .data(hexbin(points))
         .enter()
-        .append("path")
-        .attr("class", "hexagon")
-        .attr("d", hexbin.hexagon())
-        .attr("transform", function (d) {
-          return "translate(" + d.x + "," + d.y + ")";
+        .append('path')
+        .attr('class', 'hexagon')
+        .attr('d', hexbin.hexagon())
+        .attr('transform', function (d) {
+          return 'translate(' + d.x + ',' + d.y + ')';
         })
-        .style("fill", function (d) {
+        .style('fill', function (d) {
           return color(d.length);
         });
 
@@ -175,12 +175,12 @@ function visual(suffixes, placeNames) {
         .attr('viewBox', '0 0 ' + width + ' ' + height)
         .attr('preserveAspectRatio', 'xMidYMid meet');
 
-      svg.append("clipPath")
-        .attr("id", "clip")
-        .append("rect")
-        .attr("class", "mesh")
-        .attr("width", width)
-        .attr("height", height);
+      svg.append('clipPath')
+        .attr('id', 'clip')
+        .append('rect')
+        .attr('class', 'mesh')
+        .attr('width', width)
+        .attr('height', height);
       return svg;
     }
 
