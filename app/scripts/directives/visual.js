@@ -53,7 +53,7 @@ function visual(suffixes, placeNames) {
 
 
     var color = d3.scale.linear()
-      .domain([0, 10])
+      .domain([0, 8])
       .range([backgroundColor, foregroundColor])
       .interpolate(d3.interpolateLab);
 
@@ -84,7 +84,7 @@ function visual(suffixes, placeNames) {
     placeNames.getPlaceNames().then(placeNamesLoaded);
 
     /*-----------------------------------------
-              FUNCTIONS
+     FUNCTIONS
      ------------------------------------------*/
 
     /**
@@ -122,20 +122,34 @@ function visual(suffixes, placeNames) {
     function drawPlaceNames(svg, regex) {
 
       // Create selection of points that contain the suffix
-      var reg = RegExp(regex);
+      var reg = RegExp(regex, 'i');
       var points = scope.allPlacenames.filter(function (value, index) {
         return reg.test(value.namewithoutadditions);
       });
+      var bins = hexbin(points);
+
 
       // Delete previous hexbins
       d3.selectAll('.hexagon').remove();
 
       // Show selected
       svg.selectAll('.hexagon')
-        .data(hexbin(points))
+        .data(bins)
         .enter()
         .append('path')
         .attr('class', 'hexagon')
+        .attr('data-content', function (d) {
+          var str = "";
+          d.forEach(function (val, i) {
+            if (i > 0) {
+              str += ", "
+            }
+            str += val.namewithoutadditions
+          });
+          return str;
+        })
+        .attr('data-position', 'top center')
+        .attr('data-offset', hexbin.radius() / 2)
         .attr('d', hexbin.hexagon())
         .attr('transform', function (d) {
           return 'translate(' + d.x + ',' + d.y + ')';
@@ -143,6 +157,8 @@ function visual(suffixes, placeNames) {
         .style('fill', function (d) {
           return color(d.length);
         });
+
+      $('.hexagon').popup();
 
       return svg;
     }
@@ -168,7 +184,7 @@ function visual(suffixes, placeNames) {
      * @returns {*}
      */
     function setupSvg() {
-  // Setup SVG
+      // Setup SVG
       var svg = d3.select('.d3.graph').append('svg')
         .attr('width', '100%')
         .attr('height', '100%')
