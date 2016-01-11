@@ -57,6 +57,7 @@ function visual(suffixes, placeNames) {
       .range([backgroundColor, foregroundColor])
       .interpolate(d3.interpolateLab);
 
+    // Define Hexbin function
     var hexbin = d3.hexbin()
       .size([width, height])
       .radius(10)
@@ -67,7 +68,9 @@ function visual(suffixes, placeNames) {
         return y(d.N)
       });
 
-    //Initialize Dropdown
+    //Initialize Dropdown, and bind the onChange action to kick off the
+    // drawing of the places
+    // Dropdown functionality is provided by Semantic UI JS.
     $('.ui.dropdown').dropdown({
       action: 'activate',
       onChange: function (value, text, $selectedItem) {
@@ -76,27 +79,22 @@ function visual(suffixes, placeNames) {
       }
     });
 
+    // Load both the suffix list and the placenames
     suffixes.getSuffixes().then(suffixesLoaded);
     placeNames.getPlaceNames().then(placeNamesLoaded);
 
+    /*-----------------------------------------
+              FUNCTIONS
+     ------------------------------------------*/
 
-    function setupSvg() {
-// Setup SVG
-      var svg = d3.select('.d3.graph').append('svg')
-        .attr('width', '100%')
-        .attr('height', '100%')
-        .attr('viewBox', '0 0 ' + width + ' ' + height)
-        .attr('preserveAspectRatio', 'xMidYMid meet');
-
-      svg.append("clipPath")
-        .attr("id", "clip")
-        .append("rect")
-        .attr("class", "mesh")
-        .attr("width", width)
-        .attr("height", height);
-      return svg;
-    }
-
+    /**
+     * Creates the background grid that is used to show Switzerland's borders
+     *
+     * Due to the fact that no bins are created when there are no points that
+     * fall within a bin, Switzerland has a few holes in the Alps.
+     * @param svg
+     * @returns {*}
+     */
     function createBackgroundGrid(svg) {
       // Create background shape of switzerland with all data points
       svg.append("g")
@@ -114,14 +112,13 @@ function visual(suffixes, placeNames) {
       return svg;
     }
 
-    function placeNamesLoaded(data) {
-      // Parse all placenames into an array
-      scope.allPlacenames = d3.csv.parse(data);
-      svg = setupSvg();
-      svg = createBackgroundGrid(svg);
-      $('.d3.graph').removeClass('loading');
-    }
-
+    /**
+     * Draws the density grid.
+     *
+     * @param svg
+     * @param regex {string} The regular expression used to look for placenames
+     * @returns {*}
+     */
     function drawPlaceNames(svg, regex) {
 
       // Create selection of points that contain the suffix
@@ -134,7 +131,6 @@ function visual(suffixes, placeNames) {
       d3.selectAll('.hexagon').remove();
 
       // Show selected
-
       svg.selectAll(".hexagon")
         .data(hexbin(points))
         .enter()
@@ -151,10 +147,52 @@ function visual(suffixes, placeNames) {
       return svg;
     }
 
+    /**
+     * This is being kicked off as soon as the placenames have finished loading.
+     * @param data
+     */
+    function placeNamesLoaded(data) {
+      // Parse all placenames into an array
+      scope.allPlacenames = d3.csv.parse(data);
+
+      // Set up the visualisation
+      svg = setupSvg();
+      svg = createBackgroundGrid(svg);
+
+      // Remove the loading spinner
+      $('.d3.graph').removeClass('loading');
+    }
+
+    /**
+     * Prepares the SVG element and makes sure it scales.
+     * @returns {*}
+     */
+    function setupSvg() {
+  // Setup SVG
+      var svg = d3.select('.d3.graph').append('svg')
+        .attr('width', '100%')
+        .attr('height', '100%')
+        .attr('viewBox', '0 0 ' + width + ' ' + height)
+        .attr('preserveAspectRatio', 'xMidYMid meet');
+
+      svg.append("clipPath")
+        .attr("id", "clip")
+        .append("rect")
+        .attr("class", "mesh")
+        .attr("width", width)
+        .attr("height", height);
+      return svg;
+    }
+
+    /**
+     * Used as soon as the suffix list has been loaded.
+     * @param data
+     */
     function suffixesLoaded(data) {
       scope.suffixList = angular.fromJson(data);
-      $('.ui.dropdown').removeClass('loading');
 
+      // Remove the loading indicator
+      $('.ui.dropdown').removeClass('loading');
     }
 
   }
