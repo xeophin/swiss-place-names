@@ -35,3 +35,11 @@ p.imprint {
 .legend .legendbin:nth-child(5n + 1) span {
   visibility: visible;
 }
+
+div.ui.segment {
+  -webkit-transition: height 0.7s ease-in-out;
+  -moz-transition: height 0.7s ease-in-out;
+  -ms-transition: height 0.7s ease-in-out;
+  -o-transition: height 0.7s ease-in-out;
+  transition: height 0.7s ease-in-out;
+}
