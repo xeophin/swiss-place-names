@@ -18,3 +18,20 @@ p.imprint {
   font-size: 0.8em;
   color: lightgray;
 }
+
+.legend .legendbin {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  text-align: center;
+}
+
+.legend .legendbin span {
+  color: white;
+  font-size: 0.8em;
+  visibility: hidden;
+}
+
+.legend .legendbin:nth-child(5n + 1) span {
+  visibility: visible;
+}

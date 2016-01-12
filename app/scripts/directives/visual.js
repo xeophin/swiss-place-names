@@ -1,3 +1,4 @@
+(function($, d3, angular){
 'use strict';
 
 /**
@@ -53,7 +54,7 @@ function visual(suffixes, placeNames) {
 
 
     var color = d3.scale.linear()
-      .domain([0, 8])
+      .domain([0, 10])
       .range([backgroundColor, foregroundColor])
       .interpolate(d3.interpolateLab);
 
@@ -74,7 +75,6 @@ function visual(suffixes, placeNames) {
     $('.ui.dropdown').dropdown({
       action: 'activate',
       onChange: function (value, text, $selectedItem) {
-        console.log(value);
         drawPlaceNames(svg, value);
       }
     });
@@ -110,6 +110,38 @@ function visual(suffixes, placeNames) {
         .style('fill', backgroundColor);
 
       return svg;
+    }
+
+    /**
+     * Draws a legend – not as an SVG, but as normal divs that are partially
+     * styled with CSS.
+     */
+    function drawLegend() {
+
+      // Setup data
+      var legendData = [];
+      for (var i = 0; i < 21; i++) {
+        legendData.push({
+          number: i,
+          color: color(i)
+        })
+      }
+
+      // Find insertion point and add divs
+      d3.select('.legend')
+        .selectAll('.legendbin')
+        .data(legendData)
+        .enter()
+        .append('div')
+        .classed('legendbin', true)
+        .style('background-color', function (d) {
+          return d.color
+        })
+        .attr('title', function(d) {return d.number})
+        .append('span')
+        .text(function (d) {
+          return d.number
+        });
     }
 
     /**
@@ -174,6 +206,7 @@ function visual(suffixes, placeNames) {
       // Set up the visualisation
       svg = setupSvg();
       svg = drawBackgroundGrid(svg);
+      drawLegend();
 
       // Remove the loading spinner
       $('.d3.graph').removeClass('loading');
@@ -212,6 +245,6 @@ function visual(suffixes, placeNames) {
     }
 
 
-
   }
 }
+})(jQuery, d3, angular);
