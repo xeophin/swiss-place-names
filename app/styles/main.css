@@ -32,6 +32,10 @@ p.imprint {
   visibility: hidden;
 }
 
+.city {
+  pointer-events: none;
+}
+
 .legend .legendbin:nth-child(5n + 1) span {
   visibility: visible;
 }
