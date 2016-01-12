@@ -3,9 +3,6 @@
     <p>Die Visualisierung zeigt die Verteilung von bestimmten
       Ortsnamensendungen in der Schweiz.
     </p>
-
-  </div>
-  <div class="column">
     <p>Je mehr Ortschaften mit der selben Endung sich in einem Hexagon
       befinden, desto dunkler ist dessen Farbe.</p>
   </div>
@@ -13,7 +10,7 @@
     <p>Wählen Sie ein Suffix aus dem Menü aus, um die Verteilung anzuzeigen:
     </p>
     <div class="ui selection fluid dropdown loading">
-      <input type="hidden" name="gender" ng-model="chosenSuffix">
+      <input type="hidden" name="suffixChooser" ng-model="chosenSuffix">
       <i class="dropdown icon"></i>
       <div class="default text">Suffix auswählen</div>
       <div class="menu">
@@ -21,6 +18,17 @@
              data-value="{{sx.regex}}">{{sx.niceName}}</div>
       </div>
     </div>
+  </div>
+  <div class="column">
+    <p>Oder suchen Sie nach einem eigenen Begriff. Sie können dazu auch
+      reguläre Ausdrücke verwenden.</p>
+    <form ng-submit="updateMap(chosenSuffix)"
+          class="ui fluid action input">
+      <input type="text" ng-model="chosenSuffix"
+             placeholder="Eigener Suchbegriff">
+      <div class="ui button" ng-click="updateMap(chosenSuffix)">Suche</div>
+    </form>
+
   </div>
 </div>
 

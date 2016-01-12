@@ -24,6 +24,7 @@
     function link(scope, element, attrs) {
       scope.suffixList = [];
       scope.allPlacenames = [];
+      scope.updateMap = updateMap;
 
 
       /**
@@ -133,6 +134,7 @@
           action: 'activate',
           onChange: function (value, text, $selectedItem) {
             updateMap(value);
+            scope.chosenSuffix = value;
           }
         });
 
