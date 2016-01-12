@@ -80,6 +80,10 @@
     "regex": "[ui]ng(en)?$"
   },
   {
+    "niceName": "-wis, -wies, -wisen",
+    "regex": "w(i|y|ie)s(li|en)?$"
+  },
+  {
     "niceName": "-loch, -löchli",
     "regex": "l[öo]ch(li)?$"
   },
