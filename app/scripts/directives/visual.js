@@ -16,7 +16,8 @@
       restrict: 'E',
       scope: {
         suffix: '=',
-        chosenSuffix: '='
+        chosenSuffix: '=',
+        foundPlaces: '='
       },
       link: link
     };
@@ -24,6 +25,7 @@
     function link(scope, element, attrs) {
       scope.suffixList = [];
       scope.allPlacenames = [];
+      scope.foundPlaces = 0;
       scope.updateMap = updateMap;
 
 
@@ -135,6 +137,7 @@
           onChange: function (value, text, $selectedItem) {
             updateMap(value);
             scope.chosenSuffix = value;
+            scope.$apply();
           }
         });
 
@@ -251,8 +254,8 @@
         var points = scope.allPlacenames.filter(function (value, index) {
           return reg.test(value.namewithoutadditions);
         });
+        scope.foundPlaces = points.length;
         var bins = hexbin(points);
-
 
         // Delete previous hexbins
         d3.selectAll('.hexagon').remove();
