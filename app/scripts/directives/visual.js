@@ -80,8 +80,8 @@ function visual(suffixes, placeNames) {
     });
 
     // Load both the suffix list and the placenames
-    suffixes.getSuffixes().then(suffixesLoaded);
-    placeNames.getPlaceNames().then(placeNamesLoaded);
+    suffixes.getSuffixes().then(onSuffixesLoaded);
+    placeNames.getPlaceNames().then(onPlaceNamesLoaded);
 
     /*-----------------------------------------
      FUNCTIONS
@@ -95,7 +95,7 @@ function visual(suffixes, placeNames) {
      * @param svg
      * @returns {*}
      */
-    function createBackgroundGrid(svg) {
+    function drawBackgroundGrid(svg) {
       // Create background shape of switzerland with all data points
       svg.append('g')
         .attr('clip-path', 'url(#clip)')
@@ -167,16 +167,27 @@ function visual(suffixes, placeNames) {
      * This is being kicked off as soon as the placenames have finished loading.
      * @param data
      */
-    function placeNamesLoaded(data) {
+    function onPlaceNamesLoaded(data) {
       // Parse all placenames into an array
       scope.allPlacenames = d3.csv.parse(data);
 
       // Set up the visualisation
       svg = setupSvg();
-      svg = createBackgroundGrid(svg);
+      svg = drawBackgroundGrid(svg);
 
       // Remove the loading spinner
       $('.d3.graph').removeClass('loading');
+    }
+
+    /**
+     * Used as soon as the suffix list has been loaded.
+     * @param data
+     */
+    function onSuffixesLoaded(data) {
+      scope.suffixList = angular.fromJson(data);
+
+      // Remove the loading indicator
+      $('.ui.dropdown').removeClass('loading');
     }
 
     /**
@@ -200,16 +211,7 @@ function visual(suffixes, placeNames) {
       return svg;
     }
 
-    /**
-     * Used as soon as the suffix list has been loaded.
-     * @param data
-     */
-    function suffixesLoaded(data) {
-      scope.suffixList = angular.fromJson(data);
 
-      // Remove the loading indicator
-      $('.ui.dropdown').removeClass('loading');
-    }
 
   }
 }
