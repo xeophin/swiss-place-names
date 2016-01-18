@@ -3,6 +3,7 @@
     <visual search-string="{{item.regex}}"
             display-title="{{$index + 1 + '. ' + item.niceName | shorten}}"
             subhead="{{item.niceName}}"
+            hexbin-size="20"
             class="{{item.niceName | classify}}">
       <div class="ui segment loading placeholder"></div>
     </visual>

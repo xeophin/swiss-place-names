@@ -34,9 +34,15 @@
       scope.showSelfService = attrs.showSelfService || false;
       scope.showLegend = attrs.showLegend || false;
       scope.subhead = attrs.subhead || false;
+
+      /**
+       * Identifier of the visualisation, used to select the right object
+       * when drawing/updating the visualisation.
+       * @type {string}
+       */
       var identifier = '.' + attrs.class;
 
-
+      var hexbinSize = attrs.hexbinSize || 10;
 
       /**
        * Reference to the SVG node
@@ -111,7 +117,7 @@
        * Color Scale
        */
       var color = d3.scale.linear()
-        .domain([0, 10])
+        .domain([0, hexbinSize])
         .range([backgroundColor, foregroundColor])
         .interpolate(d3.interpolateLab);
 
@@ -120,7 +126,7 @@
        */
       var hexbin = d3.hexbin()
         .size([width, height])
-        .radius(10)
+        .radius(hexbinSize)
         .x(function (d) {
           return x(d.E)
         })
