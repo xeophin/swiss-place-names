@@ -1,4 +1,4 @@
-(function () {
+(function (d3, angular) {
   'use strict';
 
   /**
@@ -11,23 +11,37 @@
   angular.module('swissnamesApp')
     .service('placeNames', placeNames);
 
-  function placeNames($http) {
-    return {getPlaceNames: getPlaceNames};
+  function placeNames($http, $q) {
+    var service = {
+      getPlaceNames: getPlaceNames,
+      d3list: list,
+    };
+
+    return service;
+
+    //////////////////////////////
+
+    var list;
 
     function getPlaceNames() {
-      return $http.get('data/visualisationList.csv')
-        .then(getPlaceNamesComplete)
-        .catch(getPlaceNamesFailed);
+      if (angular.isDefined(list)) {
+        return $q.when(list);
+      }
 
-      function getPlaceNamesComplete(response){
-        return response.data;
+     return $http.get('data/visualisationList.csv', {cache: true})
+          .then(getPlaceNamesComplete)
+          .catch(getPlaceNamesFailed);
+
+      function getPlaceNamesComplete(response) {
+        list = d3.csv.parse(response.data);
+        return list;
       }
 
       function getPlaceNamesFailed(error) {
         console.error(error);
       }
     }
-  };
+  }
 
 })
-();
+(d3, angular);

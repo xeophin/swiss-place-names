@@ -34,6 +34,7 @@
       scope.showSelfService = attrs.showSelfService || false;
       scope.showLegend = attrs.showLegend || false;
       scope.subhead = attrs.subhead || false;
+      scope.showPopup = attrs.showPopup || false;
 
       /**
        * Identifier of the visualisation, used to select the right object
@@ -214,7 +215,7 @@
           .style('fill', cityMarkerColor);
 
         cityNode.append('text')
-          .attr('dy', -radius*2)
+          .attr('dy', -radius * 2)
           .attr('dx', -radius)
           .text(function (d) {
             return d.namewithoutadditions;
@@ -303,7 +304,9 @@
             return color(d.length);
           });
 
-        $('.hexagon').popup();
+        if (scope.showPopup) {
+          $(identifier + ' .hexagon').popup();
+        }
 
         return svg;
       }
@@ -313,8 +316,7 @@
        * @param data
        */
       function onPlaceNamesLoaded(data) {
-        // Parse all placenames into an array
-        scope.allPlacenames = d3.csv.parse(data);
+        scope.allPlacenames = data;
 
         // Populate City List
         populateBigCities();
@@ -322,7 +324,7 @@
         // Set up the visualisation
         svg = setupSvg();
         svg = drawBackgroundGrid(svg);
-        if (scope.chosenSuffix){
+        if (scope.chosenSuffix) {
           svg = drawPlaceNames(svg, scope.chosenSuffix);
         }
         svg = drawCities(svg);
