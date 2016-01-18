@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/semantic/dist/semantic.css" />
+  <link rel="stylesheet" href="bower_components/semantic/dist/semantic.css"/>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -27,24 +27,27 @@
 
   <div class="ui grid">
     <div class="sixteen wide column">
-      <h1 class="ui header">Die 25 häufigsten Ortsnamensendungen
+      <h1 class="ui header">Die 10 häufigsten Ortsnamensendungen
         in der Schweiz</h1>
-      <visual>
-        <div class="ui segment loading placeholder"></div>
-      </visual>
+      <div class="ui stackable two column grid">
+        <topten></topten>
+      </div>
     </div>
-    <div class="twelve wide column">
-      <div class="ui horizontal divided list">
+
+  </div>
+
+  <div class="twelve wide column">
+    <div class="ui horizontal divided list">
       <div class="item">Datenquelle: SwissNames3D von <a
         href="http://swisstopo.admin.ch">
         Swisstopo</a></div>
-        <div class="item">Anzahl Datenpunkte: 49341</div>
-      </div>
-    </div>
-    <div class="four wide column">
-      <p class="imprint">Visualisierung: Kaspar Manz | xeophin.net/worlds</p>
+      <div class="item">Anzahl Datenpunkte: 49341</div>
     </div>
   </div>
+  <div class="four wide column">
+    <p class="imprint">Visualisierung: Kaspar Manz | xeophin.net/worlds</p>
+  </div>
+</div>
 
 </div>
 
@@ -72,6 +75,9 @@
 <script src="scripts/services/placenames.js"></script>
 <script src="scripts/services/suffixes.js"></script>
 <script src="scripts/d3/hexbin.js"></script>
+<script src="scripts/directives/topten.js"></script>
+<script src="scripts/filters/shorten.js"></script>
+<script src="scripts/filters/classify.js"></script>
 <!-- endbuild -->
 </body>
 </html>

@@ -1,0 +1,10 @@
+<div ng-repeat="item in suffixList | limitTo: 10 as results" class="column">
+  <div class="ui basic segment">
+    <visual search-string="{{item.regex}}"
+            display-title="{{$index + 1 + '. ' + item.niceName | shorten}}"
+            subhead="{{item.niceName}}"
+            class="{{item.niceName | classify}}">
+      <div class="ui segment loading placeholder"></div>
+    </visual>
+  </div>
+</div>

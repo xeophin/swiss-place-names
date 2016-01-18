@@ -1,4 +1,4 @@
-<div class="ui three column stackable grid">
+<div class="ui three column stackable grid" ng-if="showSelfService">
   <div class="column">
     <p>Die Visualisierung zeigt die Verteilung von bestimmten
       Ortsnamensendungen in der Schweiz.
@@ -40,8 +40,14 @@
   </div>
 </div>
 
-<div class="d3 graph ui segment loading" style="min-height: 33vh;"></div>
-<div>
+<h2 ng-if="title" class="ui dividing header">{{title}}
+<span class="sub header" ng-if="subhead">{{subhead}}</span>
+</h2>
+
+<!-- Actual visualisation -->
+<div class="d3 graph ui basic segment loading" style="min-height: 33vh;"></div>
+
+<div ng-if="showLegend">
   <p class="ui small header">Anzahl Nennungen innerhalb eines Sechseckfeldes</p>
   <div class="legend"></div>
 </div>

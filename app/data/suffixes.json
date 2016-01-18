@@ -13,7 +13,7 @@
   },
   {
     "niceName": "-egg, -eggen, -eggli",
-    "regex": "egg(en|li)?$"
+    "regex": "egg(en|li|u)?$"
   },
   {
     "niceName": "-haus, -hus, -husen, -hüsli",

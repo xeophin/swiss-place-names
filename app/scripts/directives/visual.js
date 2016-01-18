@@ -28,6 +28,15 @@
       scope.foundPlaces = 0;
       scope.updateMap = updateMap;
 
+      // Setup attributes
+      scope.title = attrs.displayTitle || false;
+      scope.chosenSuffix = attrs.searchString || false;
+      scope.showSelfService = attrs.showSelfService || false;
+      scope.showLegend = attrs.showLegend || false;
+      scope.subhead = attrs.subhead || false;
+      var identifier = '.' + attrs.class;
+
+
 
       /**
        * Reference to the SVG node
@@ -142,7 +151,9 @@
         });
 
         // Load both the suffix list and the placenames
-        suffixes.getSuffixes().then(onSuffixesLoaded);
+        if (scope.showSelfService) {
+          suffixes.getSuffixes().then(onSuffixesLoaded);
+        }
         placeNames.getPlaceNames().then(onPlaceNamesLoaded);
       }
 
@@ -222,7 +233,7 @@
         }
 
         // Find insertion point and add divs
-        d3.select('.legend')
+        d3.select(identifier + ' .legend')
           .selectAll('.legendbin')
           .data(legendData)
           .enter()
@@ -258,7 +269,7 @@
         var bins = hexbin(points);
 
         // Delete previous hexbins
-        d3.selectAll('.hexagon').remove();
+        d3.selectAll(identifier + ' .hexagon').remove();
 
         // Show selected
         svg.selectAll('.hexagon')
@@ -305,6 +316,9 @@
         // Set up the visualisation
         svg = setupSvg();
         svg = drawBackgroundGrid(svg);
+        if (scope.chosenSuffix){
+          svg = drawPlaceNames(svg, scope.chosenSuffix);
+        }
         svg = drawCities(svg);
         drawLegend();
 
@@ -349,7 +363,7 @@
        */
       function setupSvg() {
         // Setup SVG
-        var svg = d3.select('.d3.graph').append('svg')
+        var svg = d3.select(identifier + ' .d3.graph').append('svg')
           .attr('width', '100%')
           .attr('height', '100%')
           .attr('viewBox', '0 0 ' + width + ' ' + height)
