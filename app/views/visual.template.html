@@ -1,53 +1,71 @@
-<div class="ui three column stackable grid" ng-if="showSelfService">
-  <div class="column">
-    <p>Die Visualisierung zeigt die Verteilung von bestimmten
-      Ortsnamensendungen in der Schweiz.
-    </p>
-    <p>Je mehr Ortschaften mit der selben Endung sich in einem Hexagon
-      befinden, desto dunkler ist dessen Farbe.</p>
-  </div>
+<h2 ng-if="title" class="ui dividing header">{{vm.title}}
+  <span class="sub header" ng-if="subhead">{{vm.subhead}}</span>
+</h2>
+
+
+<div class="ui two column stackable grid" ng-if="vm.showSelfService">
   <div class="column">
     <p>Wählen Sie ein Suffix aus dem Menü aus, um die Verteilung anzuzeigen:
     </p>
     <div class="ui selection fluid dropdown loading">
-      <input type="hidden" name="suffixChooser" ng-model="chosenSuffix">
+      <input type="hidden" name="suffixChooser" ng-model="vm.chosenSuffix">
       <i class="dropdown icon"></i>
       <div class="default text">Suffix auswählen</div>
       <div class="menu">
-        <div class="item" ng-repeat="sx in suffixList track by sx.regex"
-             data-value="{{sx.regex}}">{{sx.niceName}}</div>
+        <div class="item" ng-repeat="sx in vm.suffixList track by sx.regex"
+             data-value="{{sx.regex}}">{{sx.niceName}}
+        </div>
       </div>
     </div>
-    <div class="ui grey horizontal statistic">
-      <div class="value">
-        {{foundPlaces}}
-      </div>
-      <div class="label">
-        Gefundene Orte
-      </div>
-    </div>
+
   </div>
   <div class="column">
     <p>Oder suchen Sie nach einem eigenen Begriff. Sie können dazu auch
       reguläre Ausdrücke verwenden.</p>
-    <form ng-submit="updateMap(chosenSuffix)"
-          class="ui fluid action input">
-      <input type="text" ng-model="chosenSuffix"
-             placeholder="Eigener Suchbegriff">
-      <div class="ui button" ng-click="updateMap(chosenSuffix)">Suche</div>
+    <form ng-submit="vm.updateMap(vm.chosenSuffix)"
+          class="ui form">
+      <div class="field"><input type="text" ng-model="vm.chosenSuffix"
+                                placeholder="Eigener Suchbegriff"></div>
+      <div class="ui fluid buttons">
+        <div class="ui button"
+             ng-click="vm.updateMap('^'+vm.chosenSuffix)">Präfix
+          suchen
+        </div>
+        <div class="ui button" ng-click="vm.updateMap(vm.chosenSuffix)">Freie
+          Suche
+        </div>
+        <div class="ui button"
+             ng-click="vm.updateMap(vm.chosenSuffix+'$')">Suffix
+          suchen
+        </div>
+      </div>
     </form>
+
 
   </div>
 </div>
 
-<h2 ng-if="title" class="ui dividing header">{{title}}
-<span class="sub header" ng-if="subhead">{{subhead}}</span>
-</h2>
-
 <!-- Actual visualisation -->
 <div class="d3 graph ui basic segment loading" style="min-height: 33vh;"></div>
 
-<div ng-if="showLegend">
-  <p class="ui small header">Anzahl Nennungen innerhalb eines Sechseckfeldes</p>
-  <div class="legend"></div>
+<div class="ui two column grid">
+  <div class="column">
+    <div ng-if="vm.showLegend">
+      <p class="ui small header">Anzahl Nennungen innerhalb eines
+        Sechseckfeldes</p>
+      <div class="legend"></div>
+    </div>
+  </div>
+  <div class="right aligned column">
+    <div class="ui grey horizontal statistic">
+      <div class="value">
+        {{vm.foundPlaces}}
+      </div>
+      <div class="label">
+        Orte
+      </div>
+    </div>
+  </div>
 </div>
+
+

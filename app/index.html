@@ -8,7 +8,7 @@
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/semantic/dist/semantic.css"/>
+  <link rel="stylesheet" href="bower_components/semantic/dist/semantic.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -22,6 +22,10 @@
   your experience.</p>
 <![endif]-->
 
+<div class="ui inverted page dimmer">
+  <div class="ui large text loader">Daten werden geladen</div>
+</div>
+
 <!-- Add your site or application content here -->
 <div class="ui container">
 
@@ -32,22 +36,28 @@
       <div class="ui stackable two column grid">
         <topten></topten>
       </div>
-    </div>
 
-  </div>
+      <div class="ui section divider"></div>
 
-  <div class="twelve wide column">
-    <div class="ui horizontal divided list">
-      <div class="item">Datenquelle: SwissNames3D von <a
-        href="http://swisstopo.admin.ch">
-        Swisstopo</a></div>
-      <div class="item">Anzahl Datenpunkte: 49341</div>
+      <visual show-self-service=1 show-legend="1"
+              display-title="Eigene Ortsnamen suchen" show-popup="1"
+              class="selfie"></visual>
+    </div><!-- /sixteen wide column -->
+
+
+    <div class="twelve wide column">
+      <div class="ui horizontal divided list">
+        <div class="item">Datenquelle: SwissNames3D von <a
+          href="http://swisstopo.admin.ch">
+          Swisstopo</a></div>
+        <div class="item">Anzahl Datenpunkte: 49341</div>
+      </div>
     </div>
-  </div>
-  <div class="four wide column">
-    <p class="imprint">Visualisierung: Kaspar Manz | xeophin.net/worlds</p>
-  </div>
-</div>
+    <div class="four wide column">
+      <p class="imprint">Visualisierung: Kaspar Manz | xeophin.net/worlds</p>
+    </div>
+  </div><!-- /grid -->
+</div><!-- /container -->
 
 </div>
 
