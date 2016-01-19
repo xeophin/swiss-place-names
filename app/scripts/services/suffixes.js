@@ -1,4 +1,4 @@
-(function(){
+(function(angular){
 'use strict';
 
 /**
@@ -9,18 +9,32 @@
  * Service in the swissnamesApp.
  */
 angular.module('swissnamesApp')
-  .service('suffixes', suffixes);
+  .service('suffixService', suffixes);
 
-  function suffixes($http){
-    return {getSuffixes: getSuffixes};
+  function suffixes($http, $q){
+    var service = {
+      getSuffixes: getSuffixes,
+      list: list
+    };
+
+    return service;
+
+    ////////////////////////////////////
+
+    var list;
 
     function getSuffixes() {
-      return $http.get('data/suffixes.json')
+      if (angular.isDefined(list)) {
+        return $q.when(list);
+      }
+
+      return $http.get('data/suffixes.json', {cache: true})
         .then(getSuffixesSuccess)
         .catch(getSuffixesError);
 
       function getSuffixesSuccess(response) {
-        return response.data;
+        list = angular.fromJson(response.data);
+        return list;
       }
 
       function getSuffixesError(error) {
@@ -29,4 +43,4 @@ angular.module('swissnamesApp')
     }
   }
 
-})();
+})(angular);

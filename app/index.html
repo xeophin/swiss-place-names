@@ -22,29 +22,14 @@
   your experience.</p>
 <![endif]-->
 
-<!-- Add your site or application content here -->
-<div class="ui container">
 
-  <div class="ui grid">
-    <div class="sixteen wide column">
-      <h1 class="ui header">Die 25 häufigsten Ortsnamensendungen
-        in der Schweiz</h1>
-      <visual>
-        <div class="ui segment loading placeholder"></div>
-      </visual>
-    </div>
-    <div class="twelve wide column">
-      <div class="ui horizontal divided list">
-      <div class="item">Datenquelle: SwissNames3D von <a
-        href="http://swisstopo.admin.ch">
-        Swisstopo</a></div>
-        <div class="item">Anzahl Datenpunkte: 49341</div>
-      </div>
-    </div>
-    <div class="four wide column">
-      <p class="imprint">Visualisierung: Kaspar Manz | xeophin.net/worlds</p>
-    </div>
+
+<!-- Add your site or application content here -->
+<div class="ui container" ng-view>
+  <div class="ui active page dimmer">
+    <div class="ui large text loader">Daten werden geladen</div>
   </div>
+</div><!-- /container -->
 
 </div>
 
@@ -66,12 +51,14 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
-<script src="scripts/controllers/main.js"></script>
-<script src="scripts/controllers/about.js"></script>
 <script src="scripts/directives/visual.js"></script>
 <script src="scripts/services/placenames.js"></script>
 <script src="scripts/services/suffixes.js"></script>
 <script src="scripts/d3/hexbin.js"></script>
+<script src="scripts/directives/topten.js"></script>
+<script src="scripts/filters/shorten.js"></script>
+<script src="scripts/filters/classify.js"></script>
+<script src="scripts/controllers/main.js"></script>
 <!-- endbuild -->
 </body>
 </html>

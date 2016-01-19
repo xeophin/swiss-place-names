@@ -13,15 +13,15 @@
   },
   {
     "niceName": "-egg, -eggen, -eggli",
-    "regex": "egg(en|li)?$"
+    "regex": "egg(en|li|u)?$"
   },
   {
     "niceName": "-haus, -hus, -husen, -hüsli",
     "regex": "h(au|u|ü)s(li|en)?$"
   },
   {
-    "niceName": "-weid, -weide, -waid, -weidli",
-    "regex": "w[ae]id(e|en|li)?$"
+    "niceName": "-weid, -weide, -waid, -weidli, -wyd",
+    "regex": "w([ae]i|y)d(e|en|li)?$"
   },
   {
     "niceName": "-bach, -bächli",
