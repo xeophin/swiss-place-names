@@ -19,6 +19,19 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main',
+        resolve: {
+          places: function(placeNamesService){
+            return placeNamesService.getPlaceNames();
+          },
+          suffixes: function(suffixService){
+            return suffixService.getSuffixes();
+          }
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });

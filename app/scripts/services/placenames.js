@@ -9,12 +9,12 @@
    * Service in the swissnamesApp.
    */
   angular.module('swissnamesApp')
-    .service('placeNames', placeNames);
+    .service('placeNamesService', placeNames);
 
   function placeNames($http, $q) {
     var service = {
       getPlaceNames: getPlaceNames,
-      d3list: list,
+      d3list: list
     };
 
     return service;

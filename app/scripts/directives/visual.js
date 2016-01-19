@@ -10,7 +10,7 @@
   angular.module('swissnamesApp')
     .directive('visual', visual);
 
-  function visual(suffixes, placeNames) {
+  function visual(suffixes, places) {
     return {
       templateUrl: 'views/visual.template.html',
       restrict: 'E',
@@ -26,8 +26,8 @@
     };
 
     function link(scope, element, attrs, vm) {
-      vm.suffixList = [];
-      vm.allPlacenames = [];
+      vm.suffixList = suffixes;
+      vm.allPlacenames = places;
       vm.foundPlaces = 0;
 
       // Setup attributes
