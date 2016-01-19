@@ -2,48 +2,46 @@
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
-  padding: 0.2em 0;
-}
+  padding: 0.2em 0; }
 
 body {
   padding-top: 1em;
-  padding-bottom: 1em;
-}
+  padding-bottom: 1em; }
 
 .placeholder {
-  min-height: 75vh;
-}
+  min-height: 75vh; }
 
 p.imprint {
   font-size: 0.8em;
-  color: lightgray;
-}
+  color: lightgray; }
 
 .legend .legendbin {
   display: inline-block;
   width: 1.5em;
   height: 1.5em;
-  text-align: center;
-}
-
-.legend .legendbin span {
-  color: white;
-  font-size: 0.8em;
-  visibility: hidden;
-}
+  text-align: center; }
+  .legend .legendbin span {
+    color: white;
+    font-size: 0.8em;
+    visibility: hidden; }
+  .legend .legendbin:nth-child(5n + 1) span {
+    visibility: visible; }
 
 .city {
-  pointer-events: none;
-}
-
-.legend .legendbin:nth-child(5n + 1) span {
-  visibility: visible;
-}
+  pointer-events: none; }
 
 div.ui.segment {
   -webkit-transition: height 0.7s ease-in-out;
   -moz-transition: height 0.7s ease-in-out;
   -ms-transition: height 0.7s ease-in-out;
   -o-transition: height 0.7s ease-in-out;
-  transition: height 0.7s ease-in-out;
-}
+  transition: height 0.7s ease-in-out; }
+
+.ui.two.column.grid svg text {
+  font-size: 200%; }
+
+@media all and (max-width: 768px) {
+  svg text {
+    font-size: 200%; } }
+
+/*# sourceMappingURL=main.css.map */
