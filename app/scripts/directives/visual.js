@@ -10,29 +10,51 @@
   angular.module('swissnamesApp')
     .directive('visual', visual);
 
-  function visual(suffixes, placeNames) {
+  function visual() {
     return {
       templateUrl: 'views/visual.template.html',
       restrict: 'E',
       scope: {
-        suffix: '=',
-        chosenSuffix: '=',
-        foundPlaces: '='
+        suffixes: '=suffixes',
+        places: '=places',
+        class: '@'
       },
       link: link
     };
 
     function link(scope, element, attrs) {
-      scope.suffixList = [];
-      scope.allPlacenames = [];
-      scope.foundPlaces = 0;
+
+      // Setup attributes
+      scope.title = attrs.displayTitle || false;
+      scope.showSelfService = attrs.showSelfService || false;
+      scope.showLegend = attrs.showLegend || false;
+      scope.subhead = attrs.subhead || false;
+      scope.showPopup = attrs.showPopup || false;
+      scope.chosenSuffix = attrs.searchString || '';
+
+      scope.drawBackgroundGrid = drawBackgroundGrid;
+      scope.drawCities = drawCities;
+      scope.drawLegend = drawLegend;
+      scope.drawPlaceNames = drawPlaceNames;
+      scope.setupVisualisation = setupVisualisation;
       scope.updateMap = updateMap;
 
+      /**
+       * Identifier of the visualisation, used to select the right object
+       * when drawing/updating the visualisation.
+       * @type {string}
+       */
+      var identifier = '.' + attrs.class;
+
+      var hexbinSize = attrs.hexbinSize || 10;
+
+
+      // Private properties
 
       /**
        * Reference to the SVG node
        */
-      var svg;
+      scope.svg;
 
       /**
        * Collection of Names that will be displayed on the city layer
@@ -102,7 +124,7 @@
        * Color Scale
        */
       var color = d3.scale.linear()
-        .domain([0, 10])
+        .domain([0, hexbinSize])
         .range([backgroundColor, foregroundColor])
         .interpolate(d3.interpolateLab);
 
@@ -111,7 +133,7 @@
        */
       var hexbin = d3.hexbin()
         .size([width, height])
-        .radius(10)
+        .radius(hexbinSize)
         .x(function (d) {
           return x(d.E)
         })
@@ -121,31 +143,7 @@
 
       activate();
 
-      /*-----------------------------------------
-       FUNCTIONS
-       ------------------------------------------*/
-
-      /**
-       * This function contains all steps to set up the directive.
-       */
-      function activate() {
-        //Initialize Dropdown, and bind the onChange action to kick off the
-        // drawing of the places
-        // Dropdown functionality is provided by Semantic UI JS.
-        $('.ui.dropdown').dropdown({
-          action: 'activate',
-          onChange: function (value, text, $selectedItem) {
-            updateMap(value);
-            scope.chosenSuffix = value;
-            scope.$apply();
-          }
-        });
-
-        // Load both the suffix list and the placenames
-        suffixes.getSuffixes().then(onSuffixesLoaded);
-        placeNames.getPlaceNames().then(onPlaceNamesLoaded);
-      }
-
+      //////////////////////////////
       /**
        * Creates the background grid that is used to show Switzerland's borders
        *
@@ -159,7 +157,7 @@
         svg.append('g')
           .attr('clip-path', 'url(#clip)')
           .selectAll('.backgroundhex')
-          .data(hexbin(scope.allPlacenames))
+          .data(hexbin(scope.places))
           .enter().append('path')
           .attr('class', 'backgroundhex')
           .attr('d', hexbin.hexagon())
@@ -197,7 +195,7 @@
           .style('fill', cityMarkerColor);
 
         cityNode.append('text')
-          .attr('dy', -radius*2)
+          .attr('dy', -radius * 2)
           .attr('dx', -radius)
           .text(function (d) {
             return d.namewithoutadditions;
@@ -211,7 +209,6 @@
        * styled with CSS.
        */
       function drawLegend() {
-
         // Setup data
         var legendData = [];
         for (var i = 0; i < 21; i++) {
@@ -222,8 +219,11 @@
         }
 
         // Find insertion point and add divs
-        d3.select('.legend')
-          .selectAll('.legendbin')
+        var leg = d3.select(element[0]).select('.legend');
+console.log(d3.select(element[0]));
+        console.log(leg);
+
+          leg.selectAll('.legendbin')
           .data(legendData)
           .enter()
           .append('div')
@@ -251,14 +251,14 @@
 
         // Create selection of points that contain the suffix
         var reg = new RegExp(regex, 'i');
-        var points = scope.allPlacenames.filter(function (value, index) {
+        var points = scope.places.filter(function (value, index) {
           return reg.test(value.namewithoutadditions);
         });
         scope.foundPlaces = points.length;
         var bins = hexbin(points);
 
         // Delete previous hexbins
-        d3.selectAll('.hexagon').remove();
+        d3.selectAll(identifier + ' .hexagon').remove();
 
         // Show selected
         svg.selectAll('.hexagon')
@@ -286,7 +286,9 @@
             return color(d.length);
           });
 
-        $('.hexagon').popup();
+        if (scope.showPopup) {
+          element.find('.hexagon').popup();
+        }
 
         return svg;
       }
@@ -295,32 +297,23 @@
        * This is being kicked off as soon as the placenames have finished loading.
        * @param data
        */
-      function onPlaceNamesLoaded(data) {
-        // Parse all placenames into an array
-        scope.allPlacenames = d3.csv.parse(data);
+      function setupVisualisation() {
 
         // Populate City List
         populateBigCities();
-
-        // Set up the visualisation
-        svg = setupSvg();
-        svg = drawBackgroundGrid(svg);
-        svg = drawCities(svg);
         drawLegend();
 
+        // Set up the visualisation
+        scope.svg = setupSvg();
+        drawBackgroundGrid(scope.svg);
+        if (scope.chosenSuffix !== '') {
+          drawPlaceNames(scope.svg, scope.chosenSuffix);
+        }
+        drawCities(scope.svg);
+
+
         // Remove the loading spinner
-        $('.d3.graph').removeClass('loading');
-      }
-
-      /**
-       * Used as soon as the suffix list has been loaded.
-       * @param data
-       */
-      function onSuffixesLoaded(data) {
-        scope.suffixList = angular.fromJson(data);
-
-        // Remove the loading indicator
-        $('.ui.dropdown').removeClass('loading');
+        element.find('.d3.graph').removeClass('loading');
       }
 
       /**
@@ -328,8 +321,9 @@
        * @param searchTerm
        */
       function updateMap(searchTerm) {
-        drawPlaceNames(svg, searchTerm);
-        drawCities(svg);
+        scope.chosenSuffix = searchTerm;
+        drawPlaceNames(scope.svg, searchTerm);
+        drawCities(scope.svg);
       }
 
       /**
@@ -338,7 +332,7 @@
       function populateBigCities() {
         var searchExpression = new RegExp('^(' + bigCityNames.join('|') + ')$',
           'i');
-        bigCities = scope.allPlacenames.filter(function (value) {
+        bigCities = scope.places.filter(function (value) {
           return searchExpression.test(value.namewithoutadditions);
         })
       }
@@ -349,7 +343,9 @@
        */
       function setupSvg() {
         // Setup SVG
-        var svg = d3.select('.d3.graph').append('svg')
+        var svg = d3.select(element[0])
+          .select('.d3.graph')
+          .append('svg')
           .attr('width', '100%')
           .attr('height', '100%')
           .attr('viewBox', '0 0 ' + width + ' ' + height)
@@ -361,10 +357,35 @@
           .attr('class', 'mesh')
           .attr('width', width)
           .attr('height', height);
+
         return svg;
       }
 
+      /*-----------------------------------------
+       FUNCTIONS
+       ------------------------------------------*/
 
+      /**
+       * This function contains all steps to set up the directive.
+       */
+      function activate() {
+
+        //Initialize Dropdown, and bind the onChange action to kick off the
+        // drawing of the places
+        // Dropdown functionality is provided by Semantic UI JS.
+        element.find('.ui.dropdown').dropdown({
+          action: 'activate',
+          onChange: function (value, text, $selectedItem) {
+            scope.updateMap(value);
+            scope.$apply();
+          }
+        });
+
+        setupVisualisation();
+      }
     }
+
+
   }
+
 })(jQuery, d3, angular);
