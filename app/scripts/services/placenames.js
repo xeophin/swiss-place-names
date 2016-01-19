@@ -33,7 +33,7 @@
           .catch(getPlaceNamesFailed);
 
       function getPlaceNamesComplete(response) {
-        list = d3.csv.parse(response.data);
+        list = response.data;
         return list;
       }
 

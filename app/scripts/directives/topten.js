@@ -1,4 +1,4 @@
-(function ($, d3, angular) {
+(function () {
   'use strict';
 
   /**
@@ -10,30 +10,13 @@
   angular.module('swissnamesApp')
     .directive('topten', topten);
 
-  function topten(suffixes) {
+  function topten() {
     return {
       templateUrl: 'views/topten.template.html',
       restrict: 'E',
       replace: true,
-      link: link
+      scope: true,
     };
 
-    function link(scope, element, attrs) {
-      scope.suffixList = [];
-
-      activate();
-
-      /*------------------------------------
-                 FUNCTIONS
-       ------------------------------------*/
-
-      function activate(){
-        suffixes.getSuffixes().then(onSuffixesLoaded);
-      }
-
-      function onSuffixesLoaded(data){
-        scope.suffixList = angular.fromJson(data);
-      }
-    }
   }
-})(jQuery, d3, angular);
+})();
