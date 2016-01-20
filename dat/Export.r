@@ -3,4 +3,4 @@
 # adds a unique row number that can be used as the key as well (and makes the 
 # file smaller).
 columnsNeeded <- c("namewithoutadditions", "E", "N")
-write.csv(cleaneddata[, colnames(cleaneddata) %in% columnsNeeded], file = "visualisiationList.csv", quote = F, col.names = c("key", "name", "e", "n"))
+write.csv(cleaneddata[, colnames(cleaneddata) %in% columnsNeeded], file = "../app/data/visualisationList.csv", quote = F, col.names = c("key", "name", "e", "n"))

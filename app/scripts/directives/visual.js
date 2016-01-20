@@ -219,11 +219,9 @@
         }
 
         // Find insertion point and add divs
-        var leg = d3.select(element[0]).select('.legend');
-console.log(d3.select(element[0]));
-        console.log(leg);
-
-          leg.selectAll('.legendbin')
+        d3.select(element[0])
+          .select('.legend')
+          .selectAll('.legendbin')
           .data(legendData)
           .enter()
           .append('div')
