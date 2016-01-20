@@ -1,14 +1,12 @@
 <div ng-repeat="item in main.suffixes | limitTo: 10 as results" class="column">
-  <div class="ui basic segment">
-    <visual
-            display-title="{{$index + 1 + '. ' + item.niceName | shorten}}"
-            search-string="{{item.regex}}"
-            subhead="{{item.niceName}}"
-            hexbin-size="20"
-            class="{{item.niceName | classify}}"
-            places="main.places"
-            suffixes="main.suffixes">
-      <div class="ui segment loading placeholder"></div>
-    </visual>
-  </div>
+  <visual
+    display-title="{{$index + 1 + '. ' + item.niceName | shorten}}"
+    search-string="{{item.regex}}"
+    subhead="{{item.niceName}}"
+    hexbin-size="20"
+    class="{{item.niceName | classify}}"
+    places="main.places"
+    suffixes="main.suffixes">
+    <div class="ui segment loading placeholder"></div>
+  </visual>
 </div>
