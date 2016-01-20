@@ -18,7 +18,7 @@
       'ngSanitize',
       'ngTouch'
     ])
-    .config(function ($routeProvider) {
+    .config(function ($routeProvider, $locationProvider) {
 
       $routeProvider
         .when('/', {
@@ -41,6 +41,8 @@
       function loadPlaces(placeNamesService) {
         return placeNamesService.getPlaceNames();
       }
+
+      $locationProvider.html5Mode(true);
 
     });
 })(angular);
