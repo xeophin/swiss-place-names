@@ -42,6 +42,11 @@ p.imprint {
   pointer-events: none;
 }
 
+p.remarks {
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
 div.ui.segment {
   -webkit-transition: height 0.7s ease-in-out;
   -moz-transition: height 0.7s ease-in-out;

@@ -5,7 +5,8 @@
 
 <div class="ui two column stackable grid" ng-show="showSelfService">
   <div class="column">
-    <p>Wählen Sie ein Suffix aus dem Menü aus, um die Verteilung anzuzeigen:
+    <p>Wählen Sie im Menü aus den {{suffixes.length}} geläufigsten Endungen und
+      zeigen Sie die Verteilung auf der Karte an:
     </p>
     <div class="ui selection fluid dropdown">
       <input type="hidden" name="suffixChooser" ng-model="chosenSuffix">
@@ -29,14 +30,14 @@
                                 placeholder="Eigener Suchbegriff"></div>
       <div class="ui stackable fluid three item menu">
         <a class="item" href="#"
-             ng-click="updateMap('^'+chosenSuffix)">Präfix
+           ng-click="updateMap('^'+chosenSuffix)">Präfix
           suchen
         </a>
         <a class="item" ng-click="updateMap(chosenSuffix)" href="#">Freie
           Suche
         </a>
         <a class="item" href="#"
-             ng-click="updateMap(chosenSuffix+'$')">Suffix
+           ng-click="updateMap(chosenSuffix+'$')">Suffix
           suchen
         </a>
       </div>
@@ -49,25 +50,15 @@
 <!-- Actual visualisation -->
 <div class="d3 graph ui basic segment loading" style="min-height: 33vh;"></div>
 
-<div class="ui grid">
-  <div class="eleven wide column">
-    <div ng-show="showLegend">
-      <p class="ui small header">Anzahl Nennungen innerhalb eines
-        Sechseckfeldes</p>
-      <div class="legend"></div>
-    </div><!-- /legend -->
-      <p class="remarks">{{comment}}</p>
-    </div>
-  <div class="right aligned five wide column">
-    <div class="ui grey statistic">
-      <div class="value">
-        {{foundPlaces}}
-      </div>
-      <div class="label">
-        Orte
-      </div>
-    </div>
-  </div>
-</div>
+<div ng-show="showLegend">
+  <p class="ui small header">Anzahl Nennungen innerhalb eines
+    Sechseckfeldes</p>
+  <div class="legend"></div>
+</div><!-- /legend -->
 
+<p class="remarks">{{comment}}</p>
+
+<div class="ui top right attached big label">
+  {{foundPlaces}} Orte
+</div>
 
