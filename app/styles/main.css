@@ -11,7 +11,7 @@ body {
 .placeholder {
   min-height: 75vh; }
 
-p.imprint {
+.imprint {
   font-size: 0.8em;
   color: lightgray; }
 
@@ -30,9 +30,10 @@ p.imprint {
 .city {
   pointer-events: none; }
 
-p.remarks {
-  font-family: Georgia, serif;
-  font-style: italic; }
+p, li {
+  font-family: Georgia, serif; }
+  p.remarks, li.remarks {
+    font-style: italic; }
 
 div.ui.segment {
   -webkit-transition: height 0.7s ease-in-out;

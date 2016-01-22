@@ -14,7 +14,7 @@ body {
   min-height: 75vh;
 }
 
-p.imprint {
+.imprint {
   font-size: 0.8em;
   color: lightgray;
 }
@@ -42,9 +42,13 @@ p.imprint {
   pointer-events: none;
 }
 
-p.remarks {
+p, li {
   font-family: Georgia, serif;
-  font-style: italic;
+
+  &.remarks {
+
+    font-style: italic;
+  }
 }
 
 div.ui.segment {
