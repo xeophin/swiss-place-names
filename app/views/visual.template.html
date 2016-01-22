@@ -49,16 +49,17 @@
 <!-- Actual visualisation -->
 <div class="d3 graph ui basic segment loading" style="min-height: 33vh;"></div>
 
-<div class="ui two column grid">
-  <div class="column">
+<div class="ui grid">
+  <div class="eleven wide column">
     <div ng-show="showLegend">
       <p class="ui small header">Anzahl Nennungen innerhalb eines
         Sechseckfeldes</p>
       <div class="legend"></div>
+    </div><!-- /legend -->
+      <p class="remarks">{{comment}}</p>
     </div>
-  </div>
-  <div class="right aligned column">
-    <div class="ui grey horizontal statistic">
+  <div class="right aligned five wide column">
+    <div class="ui grey statistic">
       <div class="value">
         {{foundPlaces}}
       </div>

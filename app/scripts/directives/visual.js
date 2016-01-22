@@ -17,7 +17,8 @@
       scope: {
         suffixes: '=suffixes',
         places: '=places',
-        class: '@'
+        class: '@',
+        comment: '@'
       },
       link: link
     };
