@@ -27,18 +27,18 @@
           class="ui form">
       <div class="field"><input type="text" ng-model="chosenSuffix"
                                 placeholder="Eigener Suchbegriff"></div>
-      <div class="ui fluid buttons">
-        <div class="ui button"
+      <div class="ui stackable fluid three item menu">
+        <a class="item" href="#"
              ng-click="updateMap('^'+chosenSuffix)">Präfix
           suchen
-        </div>
-        <div class="ui button" ng-click="updateMap(chosenSuffix)">Freie
+        </a>
+        <a class="item" ng-click="updateMap(chosenSuffix)" href="#">Freie
           Suche
-        </div>
-        <div class="ui button"
+        </a>
+        <a class="item" href="#"
              ng-click="updateMap(chosenSuffix+'$')">Suffix
           suchen
-        </div>
+        </a>
       </div>
     </form>
 
