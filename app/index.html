@@ -15,14 +15,22 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
+
+  <script src="http://files.newsnetz.ch/scripts/dimension_watcher.js"></script>
+  <script>
+    DimensionWatcher.enableParentNotification(
+      function() {
+        return '100%';
+        // return $('#wrapper').width();
+      },
+      function() {
+        return $('.ui.container').height();
+      }
+    );
+  </script>
+
 </head>
 <body ng-app="swissnamesApp">
-<!--[if lte IE 8]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser.
-  Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-  your experience.</p>
-<![endif]-->
-
 
 
 <!-- Add your site or application content here -->
