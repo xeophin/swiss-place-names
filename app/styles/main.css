@@ -32,8 +32,6 @@ body {
 
 p, li {
   font-family: Georgia, serif; }
-  p.remarks, li.remarks {
-    font-style: italic; }
 
 div.ui.segment {
   -webkit-transition: height 0.7s ease-in-out;
