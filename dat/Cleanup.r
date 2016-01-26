@@ -13,6 +13,8 @@ settlements <- subset(fulldata, OBJEKTART == "Ort")
 # Take only Simple Names and Endonyms
 removedExonyms <- subset(settlements, NAMEN_TYP %in% c("Endonym", "Einfacher Name"))
 
+removedExonyms <- subset(removedExonyms, SPRACHCODE == "Hochdeutsch inkl. Lokalsprachen")
+
 # Remove unnecessary columns
 columnnames <- c("OBJEKTART", "OBJEKTKLASSE_TLM", "EINWOHNERKATEGORIE", "Z")
 slimmedData <- removedExonyms[, !(colnames(settlements) %in% columnnames)]
