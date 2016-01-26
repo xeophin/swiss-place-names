@@ -1,4 +1,4 @@
-(function () {
+(function ($, angular) {
   'use strict';
 
   /**
@@ -16,5 +16,18 @@
     main.places = d3.csv.parse(places);
     main.suffixes = suffixes;
 
+    window.ifInsideIFrame = function () {
+      // return true;
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    };
+
+    if(window.ifInsideIFrame()){
+      $('body').addClass('in-iframe');
+    }
+
   }
-})();
+})(jQuery, angular);
