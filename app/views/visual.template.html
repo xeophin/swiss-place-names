@@ -30,14 +30,15 @@
                                 placeholder="Eigener Suchbegriff"></div>
       <div class="ui stackable fluid three item menu">
         <a class="item" href="#"
-           ng-click="updateMap('^'+chosenSuffix)">Präfix
+           ng-click="updateMap('^'+chosenSuffix)">Vorsilbe
           suchen
         </a>
-        <a class="item" ng-click="updateMap(chosenSuffix)" href="#">Freie
+        <a class="blue active item" ng-click="updateMap(chosenSuffix)"
+           href="#">Freie
           Suche
         </a>
         <a class="item" href="#"
-           ng-click="updateMap(chosenSuffix+'$')">Suffix
+           ng-click="updateMap(chosenSuffix+'$')">Endung
           suchen
         </a>
       </div>
