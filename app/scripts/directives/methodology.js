@@ -17,6 +17,7 @@ angular.module('swissnamesApp')
           on: 'click',
           lastResort: 'bottom center',
           movePopup: false,
+          position: 'bottom center'
         });
       }
     };
