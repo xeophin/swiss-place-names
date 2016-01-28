@@ -383,7 +383,6 @@
 
         setupVisualisation();
 
-        scope.updateMap(scope.suffixes[0].regex);
         element.find('.ui.dropdown').dropdown('set text', scope.suffixes[0].niceName);
       }
     }
