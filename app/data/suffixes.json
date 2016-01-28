@@ -1,6 +1,6 @@
 [
   {
-    "niceName": "–berg, -bärg, -bärgli, -bergen",
+    "niceName": "-berg, -bärg, -bärgli, -bergen",
     "regex": "b[eä]rg(li|en)?$",
     "comment": "Berg heissen im Flachland auch viele kleinere Erhebungen, besonders auch ausgedehnte Hügelzüge, an deren Fuss sich Siedlungen befinden. Alpengipfel sind nur aus der Sicht des Flachlands Berge, während sie in den Alpen selbst oft bis in die frühe Neuzeit und darüber hinaus namenlos blieben."
   },

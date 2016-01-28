@@ -17,7 +17,7 @@
         <div class="default text">Suffix auswählen</div>
         <div class="menu">
           <div class="item" ng-repeat="sx in suffixes track by sx.regex"
-               data-value="{{sx.regex}}">{{sx.niceName}}
+               data-value="{{sx.regex}}">{{$index + 1}}. {{sx.niceName}}
           </div>
         </div>
       </div>
