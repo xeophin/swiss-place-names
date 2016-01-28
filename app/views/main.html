@@ -1,28 +1,29 @@
-<div class="ui grid">
+<div class="ui stackable grid">
   <div class="sixteen wide column">
+    <div class="ui segment">
+      <visual show-self-service=1
+              show-legend="1"
+              display-title="Eigene Ortsnamen suchen"
+              show-popup="1"
+              class="selfie"
+              places="main.places"
+              show-methodology="1"
+              suffixes="main.suffixes"></visual>
+    </div>
+
+    <div class="ui section hidden divider"></div>
+
     <h1 class="ui header">Die 10 häufigsten Ortsnamensendungen
-      in der Schweiz</h1>
-    <div class="ui stackable two column grid">
+      in der Schweiz </h1>
+    <div class="ui stackable two column stretched grid">
       <topten></topten>
     </div>
 
-    <div class="ui section divider"></div>
 
-    <visual show-self-service=1 show-legend="1"
-            display-title="Eigene Ortsnamen suchen" show-popup="1"
-            class="selfie" places="main.places" suffixes="main.suffixes"></visual>
   </div><!-- /sixteen wide column -->
 
-
-  <div class="twelve wide column">
-    <div class="ui horizontal divided list">
-      <div class="item">Datenquelle: SwissNames3D von <a
-        href="http://swisstopo.admin.ch">
-        Swisstopo</a></div>
-      <div class="item">Anzahl Datenpunkte: {{main.places.length}}</div>
-    </div>
-  </div>
-  <div class="four wide column">
-    <p class="imprint">Visualisierung: Kaspar Manz | xeophin.net/worlds</p>
+  <div class="sixteen wide column right aligned">
+    <div class="imprint">Visualisierung: Kaspar Manz |
+      <a href="http://xeophin.net">xeophin.net/worlds</a></div>
   </div>
 </div><!-- /grid -->

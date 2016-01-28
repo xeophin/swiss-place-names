@@ -1,51 +1,61 @@
 [
   {
-    "niceName": "–berg, -bärg",
-    "regex": "b[eä]rg(li|en)?$"
+    "niceName": "-berg, -bärg, -bärgli, -bergen",
+    "regex": "b[eä]rg(li|en)?$",
+    "comment": "Berg heissen im Flachland auch viele kleinere Erhebungen, besonders auch ausgedehnte Hügelzüge, an deren Fuss sich Siedlungen befinden. Alpengipfel sind nur aus der Sicht des Flachlands Berge, während sie in den Alpen selbst oft bis in die frühe Neuzeit und darüber hinaus namenlos blieben."
   },
   {
     "niceName": "-hof, -hofen, -höfli",
-    "regex": "h[oö]f(li|en)?$"
+    "regex": "h[oö]f(li|en)?$",
+    "comment": "Heterogenes Kartenbild, das zeigt, dass das Wort Hof in der ganzen Deutschschweiz flächendeckend präsent ist – von den frühmittelalterlichen -hofen-Siedlungen bis zu den Einzelhofgründungen des 19. Jahrhunderts."
   },
   {
     "niceName": "-matt, -matten, -mätteli",
-    "regex": "m[aä]tt(e|li)?(n)?$"
+    "regex": "m[aä]tt(e|li)?(n)?$",
+    "comment": "Ein Klassiker der Wortgeographie: Im Westen der Deutschschweiz heissen die Grasflächen Matten, im Osten Wiesen. Während das Kartenbild für die Ortsnamen stabil bleibt, wird die Matte in der Alltagssprache allmählich von der Wiese verdrängt."
   },
   {
-    "niceName": "-egg, -eggen, -eggli",
-    "regex": "egg(en|li|u)?$"
+    "niceName": "-egg, -eggen, -eggli, -eggu",
+    "regex": "egg(en|li|u)?$",
+    "comment": "Vorspringende Bergabsätze, Einsattelungen, langgezogene Bergrücken – dafür steht in der Geländenamengebung Egg, besonders im Voralpenraum, wo solche geomorphologischen Phänomene sich markant und auffällig von der Umgebung abheben."
   },
   {
-    "niceName": "-haus, -hus, -husen, -hüsli",
-    "regex": "h(au|u|ü)s(li|en)?$"
+    "niceName": "-haus, -hausen, -hus, -husen, -hüsli",
+    "regex": "h(au|u|ü)s(li|en)?$",
+    "comment": "Haus & co. heissen oft Kleinstsiedlungen in erhöhter, relativ spät besiedelter Lage, wobei die Typen je nach Form sehr unterschiedlich alt sein können."
   },
   {
-    "niceName": "-weid, -weide, -waid, -weidli, -wyd",
-    "regex": "w([ae]i|y)d(e|en|li)?$"
+    "niceName": "-weid, -weide, -weiden, -waid, -weidli, -wyd, -wydli",
+    "regex": "w([ae]i|y)d(e|en|li)?$",
+    "comment": "Namentyp, der sich auf Grasland, wo Pferde, Vieh und Schafe geweidet werden, bezieht. Da die Karte einerseits Namentypen miteinbezieht, die nichts mit der Weide zu tun haben, andererseits tausende von nicht dokumentierten Flurnamen ausblendet, ist die Aussagekraft der Karte äusserst gering."
   },
   {
-    "niceName": "-bach, -bächli",
-    "regex": "b[aä]ch(li|en)?$"
+    "niceName": "-bach, -bächli, -bachen",
+    "regex": "b[aä]ch(li|en)?$",
+    "comment": "Namen mit einem Element Bach beziehen sich auf die Lage der Örtlichkeit bei einem Wasserlauf oder bezeichnen diesen selbst, besonders den Dorfbach, den Mühlebach und kleine Fliessgewässer, die Grenzen bilden. Der Schwerpunkt der Bach-Örtlichkeiten zwischen Bern und Luzern ist wohl nur das Resultat einer ungleichen Dokumentation."
   },
   {
-"niceName": "-wil, -weiler, -wyler",
-    "regex": "w(ei|ie|i|y)l(er|en)?$"
+"niceName": "-wil, -weil, -wiel, -weiler, -wieler, -wyler, -wyl, -wylen, -wylerli",
+    "regex": "w(ei|ie|i|y)l(er|en)?(li)?$",
+    "comment": "Die -wil-Orte zeigen sehr schön die erste Ausbauschicht der alemannischen Landnahme, die im 8. und 9. Jahrhundert erstmals auch höhere Lagen erreichte."
   },
   {
     "niceName": "-boden, -bode, -bödeli",
-    "regex": "b[oö]de(n|li)?$"
+    "regex": "b[oö]de(n|li)?$",
+    "comment": "Die Boden-Orte beziehen sich traditionell auf flaches, bebaubares, freies und weites Gelände, besonders aber auch auf Talgrund, Bergterrassen und kleine Ebenen zwischen Abhängen. Darum sind sie im Alpen- und Voralpenraum häufiger als im Flachland, wo solches Gelände keine spezifische Bezeichnung brauchte."
   },
   {
-    "niceName": "-büel, -bühl",
-  "regex": "bü(h|e|eh)?l(i|en)?$"
+    "niceName": "-büel, -bühl, -bül, -büelen, -büeli",
+  "regex": "bü(h|e|eh)?l(i|en)?$",
+    "comment": "Büel ist das alte Wort für Hügel. Letzteres kam erst mit der Sprache Luthers in unseren Raum. Davor bezeichnete man mit Büel kleine und mittelgrosse rundliche Erhebungen, besonders in von der Eiszeit geprägten Endmoränen- und Drumlinlandschaften."
   },
   {
-    "niceName": "-schwand, -schwendi, -schwändi",
+    "niceName": "-schwand, -schwendi, -schwändi, -schwanden, -schwändli",
     "regex": "schw[aeä]nd(i|li|en)?$"
   },
   {
-    "niceName": "-acher, -acker, -agger",
-    "regex": "a(gg|c(h|k))er(n|li)?$"
+    "niceName": "-acher, -acker, -agger, -ächerli, -ackern",
+    "regex": "[aä](gg|c(h|k))er(n|li)?$"
   },
   {
     "niceName": "-moos, -mos, -möösli",

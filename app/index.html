@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="de-CH" xml:lang="de-CH">
 <head>
   <meta charset="utf-8">
   <title>Ortsnamensendungen</title>
@@ -15,21 +15,26 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
+
+  <script src="http://files.newsnetz.ch/scripts/dimension_watcher.js"></script>
+  <script>
+    DimensionWatcher.enableParentNotification(
+      function() {
+        return '100%';
+        // return $('#wrapper').width();
+      },
+      function() {
+        return $('.ui.container').height();
+      }
+    );
+  </script>
+
 </head>
 <body ng-app="swissnamesApp">
-<!--[if lte IE 8]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser.
-  Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve
-  your experience.</p>
-<![endif]-->
-
 
 
 <!-- Add your site or application content here -->
 <div class="ui container" ng-view>
-  <div class="ui active inverted page dimmer">
-    <div class="ui large text loader">Daten werden geladen</div>
-  </div>
 </div><!-- /container -->
 
 </div>
@@ -60,6 +65,18 @@
 <script src="scripts/filters/shorten.js"></script>
 <script src="scripts/filters/classify.js"></script>
 <script src="scripts/controllers/main.js"></script>
+<script src="scripts/directives/methodology.js"></script>
 <!-- endbuild -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-703226-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>

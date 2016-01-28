@@ -8,10 +8,7 @@ body {
   padding-top: 1em;
   padding-bottom: 1em; }
 
-.placeholder {
-  min-height: 75vh; }
-
-p.imprint {
+.imprint {
   font-size: 0.8em;
   color: lightgray; }
 
@@ -30,6 +27,9 @@ p.imprint {
 .city {
   pointer-events: none; }
 
+p, li {
+  font-family: Georgia, serif; }
+
 div.ui.segment {
   -webkit-transition: height 0.7s ease-in-out;
   -moz-transition: height 0.7s ease-in-out;
@@ -39,6 +39,13 @@ div.ui.segment {
 
 .ui.two.column.grid svg text {
   font-size: 200%; }
+
+.ui.header methodology button.ui.button {
+  position: relative;
+  top: -1ex;
+  margin-left: 1em; }
+  .ui.header methodology button.ui.button .icon {
+    margin-right: 0; }
 
 @media all and (max-width: 768px) {
   svg text {

@@ -1,72 +1,72 @@
 <h2 ng-if="title" class="ui dividing header">{{title}}
+  <methodology ng-if="showMethodology"></methodology>
   <span class="sub header" ng-if="subhead">{{subhead}}</span>
 </h2>
 
 
 <div class="ui two column stackable grid" ng-show="showSelfService">
-  <div class="column">
-    <p>Wählen Sie ein Suffix aus dem Menü aus, um die Verteilung anzuzeigen:
-    </p>
-    <div class="ui selection fluid dropdown">
-      <input type="hidden" name="suffixChooser" ng-model="chosenSuffix">
-      <i class="dropdown icon"></i>
-      <div class="default text">Suffix auswählen</div>
-      <div class="menu">
-        <div class="item" ng-repeat="sx in suffixes track by sx.regex"
-             data-value="{{sx.regex}}">{{sx.niceName}}
+  <div class="row">
+    <div class="column">
+      <p>Wählen Sie im Menü aus den {{suffixes.length}} geläufigsten Endungen
+        und
+        zeigen Sie die Verteilung auf der Karte an:
+      </p>
+      <div class="ui selection fluid dropdown">
+        <input type="hidden" name="suffixChooser" ng-model="chosenSuffix">
+        <i class="dropdown icon"></i>
+        <div class="default text">Suffix auswählen</div>
+        <div class="menu">
+          <div class="item" ng-repeat="sx in suffixes track by sx.regex"
+               data-value="{{sx.regex}}">{{$index + 1}}. {{sx.niceName}}
+          </div>
         </div>
       </div>
+
     </div>
-
-  </div>
-  <div class="column">
-    <p>Oder suchen Sie nach einem eigenen Begriff. Sie können dazu auch
-      <a href="http://www.cheatography.com/davechild/cheat-sheets/regular-expressions/">reguläre
-        Ausdrücke</a> verwenden.</p>
-    <form ng-submit="updateMap(chosenSuffix)"
-          class="ui form">
-      <div class="field"><input type="text" ng-model="chosenSuffix"
-                                placeholder="Eigener Suchbegriff"></div>
-      <div class="ui fluid buttons">
-        <div class="ui button"
-             ng-click="updateMap('^'+chosenSuffix)">Präfix
-          suchen
+    <div class="column">
+      <p>Oder suchen Sie nach einem eigenen Begriff. Sie können dazu auch
+        <a href="http://www.cheatography.com/davechild/cheat-sheets/regular-expressions/">reguläre
+          Ausdrücke</a> verwenden.</p>
+      <form ng-submit="updateMap(chosenSuffix)"
+            class="ui form">
+        <div class="field"><input type="text" ng-model="chosenSuffix"
+                                  placeholder="Eigener Suchbegriff"></div>
+        <div class="ui stackable fluid three item menu">
+          <a class="item" href="#"
+             ng-click="updateMap('^'+chosenSuffix)">Vorsilbe
+            suchen
+          </a>
+          <a class="blue active item" ng-click="updateMap(chosenSuffix)"
+             href="#">Freie
+            Suche
+          </a>
+          <a class="item" href="#"
+             ng-click="updateMap(chosenSuffix+'$')">Endung
+            suchen
+          </a>
         </div>
-        <div class="ui button" ng-click="updateMap(chosenSuffix)">Freie
-          Suche
-        </div>
-        <div class="ui button"
-             ng-click="updateMap(chosenSuffix+'$')">Suffix
-          suchen
-        </div>
-      </div>
-    </form>
+      </form>
 
 
+    </div>
   </div>
 </div>
 
 <!-- Actual visualisation -->
-<div class="d3 graph ui basic segment loading" style="min-height: 33vh;"></div>
-
-<div class="ui two column grid">
+<div class="ui one column grid">
   <div class="column">
+    <div class="d3 graph"></div>
+
     <div ng-show="showLegend">
       <p class="ui small header">Anzahl Nennungen innerhalb eines
         Sechseckfeldes</p>
       <div class="legend"></div>
-    </div>
-  </div>
-  <div class="right aligned column">
-    <div class="ui grey horizontal statistic">
-      <div class="value">
-        {{foundPlaces}}
-      </div>
-      <div class="label">
-        Orte
-      </div>
-    </div>
-  </div>
+    </div><!-- /legend -->
+
+    <p class="remarks" ng-if="comment"><q>{{comment}}</q></p></div>
 </div>
 
+<div class="ui top right attached big label">
+  {{foundPlaces}} Orte
+</div>
 
