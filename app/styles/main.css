@@ -40,6 +40,13 @@ div.ui.segment {
 .ui.two.column.grid svg text {
   font-size: 200%; }
 
+.ui.header methodology button.ui.button {
+  position: relative;
+  top: -1ex;
+  margin-left: 1em; }
+  .ui.header methodology button.ui.button .icon {
+    margin-right: 0; }
+
 @media all and (max-width: 768px) {
   svg text {
     font-size: 200%; } }

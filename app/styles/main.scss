@@ -58,6 +58,18 @@ div.ui.segment {
   }
 }
 
+.ui.header {
+  methodology button.ui.button {
+    position: relative;
+    top: -1ex;
+    margin-left: 1em;
+
+    .icon {
+      margin-right: 0;
+    }
+  }
+}
+
 @media all and (max-width: 768px) {
   svg {
     text {

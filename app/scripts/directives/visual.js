@@ -18,7 +18,8 @@
         suffixes: '=suffixes',
         places: '=places',
         class: '@',
-        comment: '@'
+        comment: '@',
+        showMethodology: '@'
       },
       link: link
     };

@@ -12,11 +12,12 @@ angular.module('swissnamesApp')
       templateUrl: 'views/methodology.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-        $('.ui.modal.methodology').modal();
-
-        element.bind('click', function(){
-          $('.ui.modal.methodology').modal('show');
-        })
+        element.find('button').popup({
+          inline: false,
+          on: 'click',
+          lastResort: 'bottom center',
+          movePopup: false,
+        });
       }
     };
   });

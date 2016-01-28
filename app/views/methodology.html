@@ -1,85 +1,81 @@
-<a href="#"
-   class="ui icon blue top right corner label"><i
-  class="info icon"></i></a>
-<div class="ui methodology modal">
-  <i class="close icon"></i>
-  <div class="header">Methodologie</div>
+<button  class="ui blue basic icon circular mini compact button"><i
+  class="info icon"></i></button>
+<div class="ui methodology basic very wide popup transition hidden">
+
+  <h2 class="header">Methodologie</h2>
+
   <div class="content">
-    <div class="ui text container"><h3 class="ui small header">Datenquelle</h3>
-      <p>SwissNames3D von <a
-        href="http://swisstopo.admin.ch">
-        Swisstopo</a></p>
+    <h3 class="ui small header">Datenquelle</h3>
+    <p>SwissNames3D von <a
+      href="http://swisstopo.admin.ch">
+      Swisstopo</a></p>
 
-      <h3 class="ui small header">Aufbereitung</h3>
+    <h3 class="ui small header">Aufbereitung</h3>
 
-      <ol class="ui ordered list">
-        <li>Ausgewählt wurden alle Objekte mit der Objektart «Ort» sowie dem
-          Namenstyp «Endonym» oder «Einfacher Name», unabhängig von deren
-          Einwohnerzahl (übrig gebliebene Datensätze: {{main.places.length}}
-          von 76618)
-        </li>
-        <li>Namenszusätze in Klammern wurden entfernt (wie <q>(D)</q> oder
-          <q>(Bern)</q>)
-        </li>
-        <li>Kantonskürzel zur Unterscheidung von gleichen Ortsnamen wurden
-          entfernt
-        </li>
-        <li>Beschreibende Zusätze wie <q>bei</q> oder <q>am</q> wurden entfernt
-        </li>
+    <ol class="ui ordered list">
+      <li>Ausgewählt wurden alle Objekte mit der Objektart «Ort» sowie dem
+        Namenstyp «Endonym» oder «Einfacher Name», unabhängig von deren
+        Einwohnerzahl (übrig gebliebene Datensätze: {{places.length}}
+        von 76618)
+      </li>
+      <li>Namenszusätze in Klammern wurden entfernt (wie <q>(D)</q> oder
+        <q>(Bern)</q>)
+      </li>
+      <li>Kantonskürzel zur Unterscheidung von gleichen Ortsnamen wurden
+        entfernt
+      </li>
+      <li>Beschreibende Zusätze wie <q>bei</q> oder <q>am</q> wurden entfernt
+      </li>
 
-      </ol>
+    </ol>
 
-      <h3 class="ui small header">Analyse</h3>
-      <p>Zum Finden der gebräuchlichsten Endungen wurden von allen Ortsnamen
-        die jeweils 2 bis 8 letzten Buchstaben genommen, und nach Häufigkeit
-        dieser Zeichenfolgen geordnet.</p>
-      <p>In diesen Listen wurden die ersten 30 Einträge manuell durchgegangen
-        und nach valablen Kandidaten durchsucht.</p>
-      <p>Für alle Kandidaten wurde nach zusätzlich nach abweichenden
-        Schreibweisen gesucht (z.B. bei «-berg» auch nach «-bärg» und
-        «-bärgli» sowie «-bergen»).</p>
+    <h3 class="ui small header">Analyse</h3>
+    <p>Zum Finden der gebräuchlichsten Endungen wurden von allen Ortsnamen
+      die jeweils 2 bis 8 letzten Buchstaben genommen, und nach Häufigkeit
+      dieser Zeichenfolgen geordnet.</p>
+    <p>In diesen Listen wurden die ersten 30 Einträge manuell durchgegangen
+      und nach valablen Kandidaten durchsucht.</p>
+    <p>Für alle Kandidaten wurde nach zusätzlich nach abweichenden
+      Schreibweisen gesucht (z.B. bei «-berg» auch nach «-bärg» und
+      «-bärgli» sowie «-bergen»).</p>
 
-      <h3 class="ui small header">Einschränkungen</h3>
-      <ul class="ui list">
-        <li>Durch die manuelle Sammlung der Kandidaten ist es möglich, dass
-          Endungen, die etymologisch zum selben Stamm gehören, aber in sehr
-          vielen unterschiedlichen Varianten geschrieben werden, nicht in der
-          Liste auftauchten und deshalb nicht berücksichtigt wurden.
-        </li>
-        <li>Während versucht wurde, möglichst viele verschiedene Schreib-
-          und Dialektvarianten zu berücksichtigen, kann nicht garantiert
-          werden, dass alle möglichen Varianten gefunden werden.
-        </li>
-        <li>Die Daten umschliessen zwar Orte aller Landessprachen, durch die
-          überwiegende Mehrzahl der deutschsprachigen Ortnamen wurden aber
-          nur deutschssprachige Orte in die Liste genommen. Für die anderen
-          Landessprachen wären jeweils eigene Analysen nötig.
-        </li>
-      </ul>
+    <h3 class="ui small header">Einschränkungen</h3>
+    <ul class="ui list">
+      <li>Durch die manuelle Sammlung der Kandidaten ist es möglich, dass
+        Endungen, die etymologisch zum selben Stamm gehören, aber in sehr
+        vielen unterschiedlichen Varianten geschrieben werden, nicht in der
+        Liste auftauchten und deshalb nicht berücksichtigt wurden.
+      </li>
+      <li>Während versucht wurde, möglichst viele verschiedene Schreib-
+        und Dialektvarianten zu berücksichtigen, kann nicht garantiert
+        werden, dass alle möglichen Varianten gefunden werden.
+      </li>
+      <li>Die Daten umschliessen zwar Orte aller Landessprachen, durch die
+        überwiegende Mehrzahl der deutschsprachigen Ortnamen wurden aber
+        nur deutschssprachige Orte in die Liste genommen. Für die anderen
+        Landessprachen wären jeweils eigene Analysen nötig.
+      </li>
+    </ul>
 
-      <h3 class="ui small header">Kommentare zu den einzelnen
-        Ortsnamensendungen</h3>
+    <h3 class="ui small header">Kommentare zu den einzelnen
+      Ortsnamensendungen</h3>
 
-      <p>Dr. Martin. H. Graf,
-        <a href="http://www.idiotikon.ch">Schweizerdeutsches Wörterbuch –
+    <p>Dr. Martin. H. Graf,
+      <a href="http://www.idiotikon.ch">Schweizerdeutsches Wörterbuch –
         Schweizer Idiotikon</a></p>
 
-      <h3 class="ui small header">
-        Inspiration
-      </h3>
+    <h3 class="ui small header">
+      Inspiration
+    </h3>
 
-      <ul class="ui list">
-        <li class="item">
-          <a href="http://truth-and-beauty.net/experiments/ach-ingen-zell/"><em>-ach,
-            -ingen, -zell</em> von Moritz Stefaner
-          </a></li>
-        <li
-          class="item"><a href="http://bgrsquared.com/placeNames/"><em>Places in
-          Germany and Switzerland</em> von Chris Roth</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="actions">
-    <div class="ui approve button">Schliessen</div>
+    <ul class="ui list">
+      <li class="item">
+        <a href="http://truth-and-beauty.net/experiments/ach-ingen-zell/"><em>-ach,
+          -ingen, -zell</em> von Moritz Stefaner
+        </a></li>
+      <li
+        class="item"><a href="http://bgrsquared.com/placeNames/"><em>Places in
+        Germany and Switzerland</em> von Chris Roth</a></li>
+    </ul>
   </div>
 </div>
