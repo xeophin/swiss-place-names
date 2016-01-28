@@ -8,15 +8,16 @@
               class="selfie"
               places="main.places"
               show-methodology="1"
+              search-string="b[eä]rg(li|en)?$"
               suffixes="main.suffixes"></visual>
     </div>
 
     <div class="ui section hidden divider"></div>
 
-    <h1 class="ui header">Die 10 häufigsten Ortsnamensendungen
+    <h1 class="ui header">Die {{main.limit}} häufigsten Ortsnamensendungen
       in der Schweiz </h1>
     <div class="ui stackable two column stretched grid">
-      <topten></topten>
+      <topten limit="{{main.limit}}"></topten>
     </div>
 
 
