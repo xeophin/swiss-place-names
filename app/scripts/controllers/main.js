@@ -30,8 +30,6 @@
       $('body').addClass('in-iframe');
     }
 
-    console.log($(window).width());
-
     if ($(window).width() < 767) {
       main.limit = 5;
     }

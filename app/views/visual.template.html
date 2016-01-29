@@ -58,18 +58,20 @@
   <div class="column">
     <div class="d3 graph"></div>
 
+    <div class="ui top left attached label">
+      {{foundPlaces}} Orte
+    </div>
+
     <div ng-show="showLegend">
       <p class="ui small header">Anzahl Nennungen innerhalb eines
         Sechseckfeldes</p>
       <div class="legend"></div>
     </div><!-- /legend -->
 
+
+    <div ng-if="comment" class="ui hidden divider"></div>
+
     <p class="remarks" ng-if="comment"><q>{{comment}}</q></p>
-
-    <div class="ui top left attached label">
-      {{foundPlaces}} Orte
-    </div>
-
   </div>
 </div>
 
