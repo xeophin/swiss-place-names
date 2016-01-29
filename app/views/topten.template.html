@@ -1,4 +1,5 @@
-<div ng-repeat="item in main.suffixes | limitTo: 10 as results" class="column">
+<div ng-repeat="item in main.suffixes | limitTo: main.limit as results"
+     class="column">
   <div class="ui segment">
     <visual
       display-title="{{$index + 1 + '. ' + item.niceName | shorten}}"

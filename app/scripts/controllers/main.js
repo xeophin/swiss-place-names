@@ -15,6 +15,7 @@
     var main = this;
     main.places = d3.csv.parse(places);
     main.suffixes = suffixes;
+    main.limit = 10;
 
     window.ifInsideIFrame = function () {
       // return true;
@@ -27,6 +28,10 @@
 
     if(window.ifInsideIFrame()){
       $('body').addClass('in-iframe');
+    }
+
+    if ($(window).width() < 767) {
+      main.limit = 5;
     }
 
   }

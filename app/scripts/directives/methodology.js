@@ -16,8 +16,18 @@ angular.module('swissnamesApp')
           inline: false,
           on: 'click',
           lastResort: 'bottom center',
-          movePopup: false,
+          movePopup: true,
+          position: 'bottom center',
+          onShow: createCloseButton
         });
+
+        function createCloseButton ($module, $context) {
+          console.log($module);
+          console.log($context);
+          element.find('button.close').bind('click', function () {
+            element.find('button').popup('hide');
+          });
+        }
       }
     };
   });

@@ -1,4 +1,4 @@
-(function () {
+(function ($) {
   'use strict';
 
   /**
@@ -16,7 +16,12 @@
       restrict: 'E',
       replace: true,
       scope: true,
+      link: link
     };
 
+    function link(scope, element, attrs) {
+      scope.limit = attrs.limit;
+    }
+
   }
-})();
+})(jQuery);
