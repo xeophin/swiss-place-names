@@ -2,7 +2,7 @@
   {
     "niceName": "-berg, -bärg, -bärgli, -bergen",
     "regex": "b[eä]rg(li|en)?$",
-    "comment": "Berg heissen im Flachland auch viele kleinere Erhebungen, besonders auch ausgedehnte Hügelzüge, an deren Fuss sich Siedlungen befinden. Alpengipfel sind nur aus der Sicht des Flachlands Berge, während sie in den Alpen selbst oft bis in die frühe Neuzeit und darüber hinaus namenlos blieben."
+    "comment": "Berg heissen im Flachland auch viele kleinere Erhebungen, besonders auch ausgedehnte Hügelzüge, an deren Fuss sich Siedlungen befinden. Warum gibt es keine Berg-Namensendungen in der Alpenregion? Alpengipfel sind nur aus der Sicht des Flachlands Berge, während sie in den Alpen selbst oft bis in die frühe Neuzeit und darüber hinaus namenlos blieben."
   },
   {
     "niceName": "-hof, -hofen, -höfli",
@@ -12,7 +12,7 @@
   {
     "niceName": "-matt, -matten, -mätteli",
     "regex": "m[aä]tt(e|li)?(n)?$",
-    "comment": "Ein Klassiker der Wortgeographie: Im Westen der Deutschschweiz heissen die Grasflächen Matten, im Osten Wiesen. Während das Kartenbild für die Ortsnamen stabil bleibt, wird die Matte in der Alltagssprache allmählich von der Wiese verdrängt."
+    "comment": "Ein Klassiker der Wortgeografie: Im Westen der Deutschschweiz heissen die Grasflächen Matten, im Osten Wiesen. Während das Kartenbild für die Ortsnamen stabil bleibt, wird die Matte in der Alltagssprache allmählich von der Wiese verdrängt."
   },
   {
     "niceName": "-egg, -eggen, -eggli, -eggu",
@@ -22,17 +22,17 @@
   {
     "niceName": "-haus, -hausen, -hus, -husen, -hüsli",
     "regex": "h(au|u|ü)s(li|en)?$",
-    "comment": "Haus & co. heissen oft Kleinstsiedlungen in erhöhter, relativ spät besiedelter Lage, wobei die Typen je nach Form sehr unterschiedlich alt sein können."
+    "comment": "Haus & Co. heissen oft Kleinstsiedlungen in erhöhter, relativ spät besiedelter Lage, wobei die Typen je nach Form sehr unterschiedlich alt sein können."
   },
   {
     "niceName": "-weid, -weide, -weiden, -waid, -weidli, -wyd, -wydli",
     "regex": "w([ae]i|y)d(e|en|li)?$",
-    "comment": "Namentyp, der sich auf Grasland, wo Pferde, Vieh und Schafe geweidet werden, bezieht. Da die Karte einerseits Namentypen miteinbezieht, die nichts mit der Weide zu tun haben, andererseits tausende von nicht dokumentierten Flurnamen ausblendet, ist die Aussagekraft der Karte äusserst gering."
+    "comment": "Namentyp, der sich auf Grasland, wo Pferde, Vieh und Schafe geweidet werden, bezieht."
   },
   {
     "niceName": "-bach, -bächli, -bachen",
     "regex": "b[aä]ch(li|en)?$",
-    "comment": "Namen mit einem Element Bach beziehen sich auf die Lage der Örtlichkeit bei einem Wasserlauf oder bezeichnen diesen selbst, besonders den Dorfbach, den Mühlebach und kleine Fliessgewässer, die Grenzen bilden. Der Schwerpunkt der Bach-Örtlichkeiten zwischen Bern und Luzern ist wohl nur das Resultat einer ungleichen Dokumentation."
+    "comment": "Namen mit einem Element Bach beziehen sich auf die Lage der Örtlichkeit bei einem Wasserlauf oder bezeichnen diesen selbst, besonders den Dorfbach, den Mühlebach und kleine Fliessgewässer, die Grenzen bilden."
   },
   {
 "niceName": "-wil, -weil, -wiel, -weiler, -wieler, -wyler, -wyl, -wylen, -wylerli",
